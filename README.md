@@ -1,4 +1,7 @@
 # React + Vite
+Realização de lista de tarefas, utilizando react router / Dom e Hooks
+
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
