@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../views/Organizador.scss";
-import { FaPlus } from 'react-icons/fa';
+import { FaPlus, FaTrash } from 'react-icons/fa';
 
 
 const Organizador = () => {
@@ -10,14 +10,15 @@ const Organizador = () => {
     setTarefa(e.target.value);
   }
 
-
-
-
   function Adc() {
     setLista([...lista, tarefa]);
     setTarefa(''); // estado para limpar entrada do input após digitação
   }
 
+  function Remover(index){
+    const novaLista = lista.filter((_, i) => i !== index);
+    setLista(novaLista);
+  }
 
 
 
@@ -35,12 +36,16 @@ const Organizador = () => {
           <h3>Opções </h3>
         </div>
         <hr />
-        <div  >
-
-          <ul> {lista.map((cada, index) => (
-            <li key={index}>{cada} </li>
-          ))}
+        <div>
+          <ul>
+            {lista.map((cada, index) => (
+            <li key={index}>
+              {cada}
+              <button onClick={() => Remover(index)}><FaTrash/></button>
+            </li>
+            ))}
           </ul>
+          
           <input type="text" placeholder=" Nova Tarefa..." value={tarefa} onChange={novaTarefa}></input>
           <button onClick={Adc} > <FaPlus/> </button>
 
