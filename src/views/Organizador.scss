@@ -1,88 +1,108 @@
 @use '../assets/sass/variables' as *;
 
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.divborda{
+
+.divborda {
     background-color: $second-color;
     height: 74px;
     display: flex;
+
+    h5 {
+        background-color: $second-color;
+        margin-top: 29px;
+        margin-left: 61px;
+        font-size: 25px;
+        font-weight: 600;
+        color: $third-color;
+    }
+
+    h4 {
+        background-color: $second-color;
+        color: $third-color;
+        margin-top: 29px;
+        margin-left: 97px;
+        font-size: 25px;
+        font-weight: 600;   
+    }
 }
 
-.divborda h5{
-    background-color: $second-color;
-    margin-top: 29px;
-    margin-left: 61px;
-    font-size: 25px;
-    font-weight: 600;
-    color: $third-color;
-}
-
-
-.divborda h4{
-    background-color: $second-color;
-    color: $third-color;
-    margin-top: 29px;
-    margin-left: 97px;
-    font-size: 25px;
-    font-weight: 600;   
-}
-
-.function{
+.function {
     margin-left: -150px;
     margin-top: 219px;
     align-items: center;
 
+    h2 {
+        color: $third-color;
+        font-size: 40px;
+        font-weight: 600;
+    }
+
+    .afazeres {
+        display: flex;
+        grid-auto-flow: column;
+        margin-top: 90px;
+        justify-content: space-around;
+        font-size: 30px;
+        font-weight: 600;
+
+        h3 {
+            color: $third-color;
+        }
+    }
+
+    hr {
+        border: 3px solid $third-color;
+        border-radius: 5px;
+        margin-left: 100px;
+        margin-top: 20px;
+        width: 900px;
+    }
 }
 
-
-.function h2 {
-    color: $third-color;
-    font-size: 40px;
-    font-weight: 600;
-    
-}
-
-.afazeres{
+.list li {
     display: flex;
     grid-auto-flow: column;
-    margin-top: 90px;
-    justify-content: space-around;
-    font-size: 30px;
-    font-weight: 600;
-    
-    
-}
-
-.function h3{
-    color: $third-color;
-}
-
-hr{
-    border: 3px solid $third-color;
-    border-radius: 5px;
-    margin-left: 100px;
-    margin-top: 20px;
-    width: 900px;
-  }
-
-
-  .logica input{
-    margin-top: 50px;
-    margin-left: 130px;
+    justify-content:space-between;
     font-size: 25px;
     font-weight: 400;
-    border: none;
-    background-color: $first-color;
-    color: $third-color;
+    color: #FFFFFF;
     
-  }
- 
- .logica button{
+}
+
+.list li input{
+    // configurar check box
+    
+}
+
+.button button{
     border: none;
-    margin-left: 25px;
-    font-size: 25px;
-    cursor:pointer;
- }
+    color: #FFFFFF;
+    font-weight: bolder;
+    
+}
+
+
+#Adc{
+    border: none;
+    color: #FFFFFF;
+    font-weight: bolder;
+    font-size: 38px;
+}
+
+.end{
+    display: flex;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    
+}
+
+.tarefas{
+    width: 900px;
+    margin-left: 100px;
+}
+
+ 

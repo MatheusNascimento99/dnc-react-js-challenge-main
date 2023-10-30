@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../views/Organizador.scss";
-import { FaPlus, FaTrash } from 'react-icons/fa';
+import lixo from '../views/lixo.svg';
+
+
 
 
 const Organizador = () => {
@@ -11,16 +13,29 @@ const Organizador = () => {
   }
 
   function Adc() {
-    setLista([...lista, tarefa]);
+    if (tarefaSelect !== null) {
+      const novaLista = [...lista];
+      novaLista[tarefaSelect] = tarefa;
+      setLista(novaLista);
+      setTarefaSelect(null);
+    } else {
+      setLista([...lista, tarefa]);
+    }
+
     setTarefa(''); // estado para limpar entrada do input após digitação
   }
 
-  function Remover(index){
+  function Remover(index) {
     const novaLista = lista.filter((_, i) => i !== index);
     setLista(novaLista);
   }
 
+  const [tarefaSelect, setTarefaSelect] = useState(null);
 
+  function Editar(index) {
+    setTarefaSelect(index);
+    setTarefa(lista[index]);
+  }
 
 
   return (
@@ -36,19 +51,37 @@ const Organizador = () => {
           <h3>Opções </h3>
         </div>
         <hr />
-        <div>
-          <ul>
-            {lista.map((cada, index) => (
-            <li key={index}>
-              {cada}
-              <button onClick={() => Remover(index)}><FaTrash/></button>
-            </li>
-            ))}
-          </ul>
-          
-          <input type="text" placeholder=" Nova Tarefa..." value={tarefa} onChange={novaTarefa}></input>
-          <button onClick={Adc} > <FaPlus/> </button>
+        <div className="tarefas">
+          <div>
 
+            <ul className="list">
+              {lista.map((cada, index) => (
+                <li key={index}>
+                  {cada}
+
+                  <div className="task">
+                    <input  type="checkbox" />
+                  </div>
+
+                  <div className="button">
+                    <button onClick={() => Editar(index)} > Editar  </button>
+                    <button onClick={() => Remover(index)}> {lixo} </button>
+                  </div>
+
+                </li>
+              ))}
+            </ul>
+            
+          </div>
+
+          <div className="end">
+            <input  type="text" placeholder=" Nova Tarefa..." value={tarefa} onChange={novaTarefa}></input>
+            <button id="Adc"  onClick={Adc} > + </button>
+            {lixo}
+            
+
+          </div>
+          
         </div>
       </div>
     </div>
